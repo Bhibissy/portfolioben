@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Depardieu Bhibissy - Étudiant en BTS SIO SISR, spécialisé en réseaux, Linux, sécurité informatique.">
+    <title>Depardieu Bhibissy</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    
+   
+    <style>
+
+        /* Code css pour le boutton*/
+        
+        .button-container {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+        }
+        .button {
+            background: linear-gradient(to bottom, #333, #000);
+            color: white;
+            border: 1px solid #000;
+            padding: 10px 20px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 16px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .button:hover {
+            transform: scale(1.1);
+            background: linear-gradient(to bottom, #555, #222);
+            box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4);
+        }
+       /* Réinitialisation et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image:url("effet_étoile.png") ;
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #240420;
+    color: #240420;
+    line-height: 1.6;
+    
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+/* Hamburger Menu Styles */
+
+
+/* Navigation */
+nav {
+    background-color: black;
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #4CAF50;
+    transform: scale(1.1);
+}
+
+/* Styles pour le header */
+header {
+    height: 100vh;
+    background-image: url('Salle_server.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+header h1 {
+    font-size: 3em;
+    z-index: 2;
+    position: relative;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+header p {
+    font-size: 1.2em;
+    z-index: 2;
+    position: relative;
+    max-width: 800px;
+    margin: 20px auto 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Animation d'apparition */
+.fade-in {
+    animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Sections */
+section {
+    padding: 60px 0;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #4CAF50;
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: #4CAF50;
+    margin: 10px auto 0;
+}
+
+/* Mise en forme des éléments de liste */
+#about p {
+color: white;
+}
+#languages ul li,
+#skills .skill ul li,
+#experience ul li,
+#education ul li,
+#projects .project p {
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* Style des éléments de compétences, expérience, etc. */
+.skill-set,
+.experience-list,
+.education-list,
+.languages-list,
+.projects-list {
+    display: flex;
+    flex-direction:column;
+    gap: 25px;
+}
+
+.skill,
+.experience-item,
+.education-item,
+.language-item,
+.project {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.skill:hover,
+.experience-item:hover,
+.education-item:hover,
+.project:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    background-color: #f1f1f1;
+}
+/* project */
+.experience-list .experience-item .button {
+            background: linear-gradient(to bottom, #333, #000);
+            color: green;
+            border: 1px solid #000;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 2px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Formulaire de contact */
+#contact form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#contact form label {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#contact form input,
+#contact form textarea {
+    padding: 15px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+#contact form button {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#contact form button:hover {
+    background-color: #388E3C;
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background-color: #1e293b;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 1.1em;
+    position: relative;
+    animation: fadeIn 1.5s ease-out;
+}
+
+#contact-info {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+}
+
+.contact-details {
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-details p {
+    margin-bottom: 10px;
+}
+
+.contact-details a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.contact-details a:hover {
+    color: #388E3C;
+}
+
+/* Grilles pour les compétences, projets, etc. */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.grid-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.grid-item:hover {
+    transform: scale(1.05);
+}
+
+/* RESPONSIVITÉ */
+
+/* Pour les tablettes (moins de 1024px) */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}
+
+/* Pour les smartphones (moins de 768px) */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    nav ul li a {
+        font-size: 1.2em;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+}
+
+/* Pour les petits téléphones (moins de 480px) */
+@media (max-width: 480px) {
+    body {
+        font-size: 0.9em;
+    }
+
+    nav ul li a {
+        font-size: 1em;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+}
+
+.container {
+            display: flex;
+            flex-direction: column; /* Aligne les boîtes verticalement */
+            gap: 20px; /* Espace entre les lignes */
+        }
+
+        .row {
+            display: flex;
+            justify-content: center; /* Centre les boîtes dans la ligne */
+            gap: 20px; /* Espace entre les boîtes */
+        }
+
+        .box {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            width: 300px;
+            height: 300px; /* Assure une taille uniforme */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Empêche le dépassement du contenu */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: auto;
+        }
+
+        .box h2 {
+            margin-top: 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .box ul {
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .box ul li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+
+        .contact-details i {
+        color: #007bff; /* Couleur des icônes */
+        margin-right: 10px; /* Espacement entre l'icône et le texte */
+    }
+
+
+    .contact-details img {
+        width: 25px;  /* Modifier la taille des icônes */
+        margin-right: 10px; /* Espacement entre l'icône et le texte */
+        vertical-align: middle; /* Aligner l'icône au milieu du texte */
+    }
+
+    .contact-details p {
+        margin-bottom: 10px; /* Espacement entre les lignes */
+        font-size: 16px; /* Taille du texte */
+    }
+
+    .contact-details a {
+        text-decoration: none; /* Supprime le soulignement des liens */
+        color: inherit; /* Conserve la couleur du texte */
+    }
+
+    .contact-details a:hover {
+        text-decoration: underline; /* Ajoute un soulignement au survol */
+    }
+    /* project
+    .
+
+/* Cretification code*/
+/* Section Certifications */
+#certifications .certification-categories {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#certifications .certification-categories .category {
+    background-color: #222;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+#certifications .certification-categories .category.active,
+#certifications .certification-categories .category:hover {
+    background-color: #f90;
+    color: #000;
+}
+
+#certifications .certification-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    margin-top: 20px;
+}
+
+.certifications {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.certification-item {
+  width: 200px;
+  transition: transform 0.3s ease;
+}
+
+.certification-item img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.certification-item:hover {
+  transform: scale(1.05);
+}
+
+</style>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+});
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+    
+</script>
+
+<script>
+    // Fonction de filtrage des certifications
+    function filterCertifications(category) {
+    const allCertifs = document.querySelectorAll('.certification-item');
+
+  allCertifs.forEach(item => {
+    if (category === 'all' || item.classList.contains(category)) {
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+
+  // Facultatif : changer l'état "active" du bouton
+  const buttons = document.querySelectorAll('.category');
+  buttons.forEach(btn => btn.classList.remove('active'));
+  const activeButton = Array.from(buttons).find(btn => btn.textContent.toLowerCase().includes(category));
+  if (activeButton) activeButton.classList.add('active');
+}
+</script>
+
+
+
+</head>
+
+
+<body>
+    <!-- En-tête -->
+    <header  class="fade-in">
+            <nav>
+                <div class="container">
+                    <ul>
+                        <li><a href="#about">À propos</a></li>
+                        <li><a href="#skills">Compétences</a></li>
+                        <li><a href="#experience">Expérience</a></li>
+                        <li><a href="#education">Formation </a></li>
+                        <li><a href="#languages">Langues</a></li>
+                        <li><a href="#projects">Projets</a></li>
+                        <li><a href="#contact">Contact</a></li>
+
+
+                    </ul>
+          
+                </div>
+            </nav>
+    
+        
+        <h1>Depardieu Bhibissy</h1>
+        <h3>ETUDIANT BTS SIO - OPTION SISR</h3>
+        <p>Bienvenue dans mon portfolio</p>
+
+        
+        
+    </header>
+
+
+    <!-- Navigation -->
+   
+
+    <!-- Section À propos -->
+    <section id="about" class="fade-in">
+
+        <div class="container">
+            <h2>À propos de moi</h2>
+            <p>Bonjour, je suis Ben Depardieu Bhibissy, étudiant en BTS_prépa SIO option SISR, spécialisé dans
+                l'administration réseau et la gestion
+                des infrastructures informatiques.Je suis née en République du Congo (Brazzaville), c'est dans mon pays que j'ai découvert l'informatique dans le domaine des réseaux et télécommunications, et aujourd'huit je poursuis mes études en réseau en France.  Passionné par les technologies, je m'intéresse particulièrement à la
+                configuration
+                de serveurs, la virtualisation et la sécurité des systèmes. Au cours de mes études, j'ai acquis des
+                compétences pratiques
+                telles que la mise en place de stratégies de groupe, l'installation de serveurs d'impression, et la
+                gestion de machines
+                virtuelles avec des outils comme Proxmox. j'ai aussi des connaissances basiques en développement web
+                (HTML, CSS) que je compte améliorer au fil du temps. Mon objectif est d'intégrer une
+                équipe
+                dynamique où je pourrai contribuer des projets techniques tout en continuant à développer mes
+                compétences dans l'admi
+                nistration réseau et la cybersécurité. En dehors de mes activités professionnelles, j'apprécie de
+                partager mes connais
+                sances, résoudre des problématiques techniques et explorer les nouvelles tendances du numérique.</p>
+        </div>
+
+       
+
+    </section>
+
+    <div class="button-container">
+           
+        <!-- Bouton pour consulter le CV -->
+  <a href="CV_2025-04-10_Ben Depardieu_Bhibissy (1).pdf" class="button" target="_blank">Consulter CV</a>
+  <!-- Bouton pour télécharger le CV -->
+  <a href="CV_2025-04-10_Ben Depardieu_Bhibissy (1).pdf" class="button" download>Télécharger CV</a>
+
+    </div>
+
+    <!-- Section Compétences -->
+    <section id="skills" class="fade-in">
+        <div class="container">
+            <h2>Compétences</h2>
+            <div class="row">$
+                <div class="box">
+                    <h3>Administration systèmes</h3>
+                    <ul>
+                        <li>Déploiement de machines virtuelles sur Proxmox (Windows Server 2022, Windows 10 Pro, Debian)</li>
+                        <li>Configuration d’Active Directory (AD/DS), des unités d'organisation (OU) et des stratégies de groupe (GPO)</li>
+                        <li>Gestion de serveurs d’impression</li>
+                        <li>Déploiement multicast avec Fog</li>
+  
+                    </ul>
+                </div>
+            <div class="box">
+                    <h3>Linux</h3>
+                    <ul>
+                        <li>Installation et administration de serveurs Debian et services réseau</li>
+                        <li>Mise en place et gestion de serveurs LAMP (Linux, Apache, MySQL, PHP)</li>
+                        <li>Configuration de services : GLPI, Nextcloud, LDAP</li>
+                        <li>Conteneurisation avec Docker<li>
+                        
+                    </ul>
+                    
+            </div>
+            <div class="box">
+                    <h3>Dévéloppement Web</h3>
+                    <ul>
+                        <li>html/css</li>
+                        <li>WordPress</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Expérience -->
+    <section id="experience" class="fade-in">
+        <div class="container">
+            <h2>Expérience</h2>
+            <ul class="experience-list">
+                <li class="experience-item">Boutiquier (2017 - 2019)</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="education" class="fade-in">
+        <h2>Diplômes et Certifications</h2>
+        <div class="container">
+            <ul class="education-list">
+                <li class="education-item"><strong>BTS SIO - Option SISR (Actuellement)</strong>en France au Lycée Notre Dame De La Providence </li>
+                <li class="education-item"><strong>Baccalauréat Technique en réseau et télécommunication(2022-2024) au Congo Brazzavile</strong></li>
+                <li class="education-item"><strong>Brevet d'Études du Premier Cycle </strong> au Congo Brazzaville</li>
+            </ul>
+        </div>
+    </section>
+    <!-- Section Formations -->
+     
+    <section id="certifications" class="fade-in">
+        <div class="container">
+            <!-- Boutons de catégories -->
+            <div class="certification-categories">
+                <button class="category active" onclick="filterCertifications('all')">Tous</button>
+                <button class="category" onclick="filterCertifications('linux')">Linux</button>
+                <button class="category" onclick="filterCertifications('cisco')">Cisco</button>
+                <button class="category" onclick="filterCertifications('mooc-anssi')">MOOC ANSSI</button>
+                
+            </div>
+    
+            <!-- Grille des certifications -->
+            <div class="certification-grid">
+                <!-- Exemple de certification (à dupliquer pour chaque PDF) -->
+                <div class="certification-item linux">
+                    <a href="cursa/certificat_cusa_winserv19.pdf" target="_blank">
+                      <img src="certificat_cursa.png" alt="Certification Windows Server">
+                    </a>
+                  </div>
+                  <div class="certification-item linux">
+                    <a href="cursa/certificat_cursa_linux.pdf" target="_blank">
+                      <img src="certificat_cursa.png" alt="Certification Linux">
+                    </a>
+                  </div>
+                <div class="certification-item cisco">
+                    <a href="" target="_blank">
+                        <img src="netacad7.jpg" alt="Certification Cisco">
+                    </a>
+                </div>
+                <div class="certification-item mooc-anssi">
+                    <a href="présentationcertif.pdf" target="_blank">
+                        <img src="images.jpg" alt="Certification MOOC ANSSI">
+                    </a>
+                </div>
+                <!-- Ajoutez d'autres certifications ici -->
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Section Langues -->
+    <section id="languages" class="fade-in">
+        <div class="container">
+            <h2>Langues</h2>
+            <ul class="languages-list">
+                <li class="language-item">Français : Langue maternelle</li>
+                <li class="language-item">Anglais : Niveau B2(niveau intermédiare)</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Section Projets -->
+    <section id="projects" class="fade-in">
+        <div class="container">
+            <h2>Projets</h2>
+            <!-- Projets à afficher ici -->
+            <ul class="experience-list">
+
+                <li class="experience-item">
+                    <h3>Context APAEIA : <div class="button"> <button><a href="Contexte APAEIA.pdf">Mission_réaliser</a></button> </div></h3>
+                    <h3>Server APACHE : <div class="button"> <button><a href="virtualhostAPACHE.pdf">Mission_réaliser</a></button> </div></h3>
+                </li>
+                
+               
+
+                
+                
+            </ul>
+        </div>
+    </section>
+    
+
+    <!-- Section Contact -->
+    <div id="form-message"></div>
+
+    <section id="contact" class="fade-in">
+        <div class="container">
+            <h2>Contact</h2>
+            <form action="submit_form.php" method="POST">
+                <label for="name">Nom</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+
+        <!-- Section Coordonnées -->
+        <section id="contact-info" class="fade-in">
+            <div class="container">
+                <div class="contact-details">
+                    <!-- Téléphone avec icône -->
+                    <p>
+                        <img src="icone/phone-solid.svg" alt="Téléphone" style="width: 20px; margin-right: 10px;">
+                        <strong>Téléphone :</strong> +33 7 75 87 18 88
+                    </p>
+        
+                    <!-- Email avec icône -->
+                    <p>
+                        <img src="icone/message-solid.svg" alt="Email" style="width: 20px; margin-right: 10px;">
+                        <strong>Email :</strong>
+                        <a href="mailto:depardieubhibissy091@gmail.com" target="_blank">depardieubhibissy091@gmail.com</a>
+                    </p>
+        
+                    <!-- GitHub avec icône -->
+                    <p>
+                        <img src="icone/square-github-brands-solid.svg" alt="GitHub" style="width: 20px; margin-right: 10px;">
+                        <strong>portfolio :</strong>
+                        <a href="https://bhibissy.github.io/portfolio/#contact" target="_blank" 
+                           aria-label="Visitez le portfolio GitHub de bhibissy depardieu">bhibissy depardieu</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Portfolio créé par Ben Depardieu Bhibissy | Tous droits réservés 2024</p>
+    </footer>
+</body>
+
+</html>
