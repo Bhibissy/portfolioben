@@ -141,7 +141,25 @@ header p {
     max-width: 800px;
     margin: 20px auto 0;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+
 }
+#typewriter {
+  display: inline-block;
+  border-right: 2px solid white;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: blink-caret 0.7s step-end infinite;
+}
+
+@keyframes blink-caret {
+  0%, 100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: white;
+  }
+}
+
 
 /* Animation d'apparition */
 .fade-in {
@@ -525,6 +543,24 @@ footer {
 
 </style>
 
+<script>
+    
+    const text = "Bienvenue dans mon Portfolio";
+    const speed = 150;
+  let i = 0;
+
+  function typeWriter() {
+    if (i < text.length) {
+      document.getElementById("typewriter").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", typeWriter);
+    
+</script>
+
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -597,7 +633,7 @@ footer {
         
         <h1>Depardieu Bhibissy</h1>
         <h3>ETUDIANT BTS SIO - OPTION SISR</h3>
-        <p>Bienvenue dans mon portfolio</p>
+        <p><span id="typewriter"></span></p>
 
         
         
