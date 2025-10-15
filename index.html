@@ -543,6 +543,93 @@ footer {
 
 </style>
 
+<style>
+    .about-section {
+  background: linear-gradient(135deg, #1b001b, #220022);
+  color: white;
+  padding: 60px 10%;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.about-image img {
+  width: 320px;
+  max-width: 90%;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.03);
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-text h2 {
+  font-size: 2.5em;
+  color: #36ff80;
+  margin-bottom: 15px;
+}
+
+.about-text p {
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.about-buttons {
+  margin-top: 20px;
+}
+
+.button {
+  background-color: #36ff80;
+  color: black;
+  padding: 10px 20px;
+  margin-right: 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: #2cd16c;
+  transform: translateY(-2px);
+}
+
+.button.download {
+  background-color: #fff;
+  color: #222;
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text h2 {
+    font-size: 2em;
+  }
+
+  .about-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+</style>
+
 <script>
     
     const text = "Bienvenue dans mon Portfolio";
@@ -643,37 +730,36 @@ footer {
     <!-- Navigation -->
    
 
-    <!-- Section À propos -->
-    <section id="about" class="fade-in">
-
-        <div class="container">
-            <h2>À propos de moi</h2>
-
-            <p>
-                Bonjour, je m’appelle <strong>Ben Depardieu Bhibissy</strong>, étudiant en prépa BTS SIO (Services Informatiques aux Organisations), 
-spécialisé dans l’administration des systèmes et des réseaux. Originaire de la République du Congo, 
-c’est là que j’ai découvert ma passion pour l’informatique, en particulier dans le domaine des réseaux et des télécommunications. 
-Aujourd’hui, je poursuis mes études en France, où je développe des compétences techniques solides et pratiques.  
-
-Mon objectif est de devenir <strong>ingénieur en administration systèmes et réseaux</strong>. 
-C’est pourquoi, en parallèle de mon BTS SIO, je suis une classe préparatoire en partenariat avec l’école d’ingénieurs <strong>ISEN</strong>, 
-afin d’intégrer cette formation après mon diplôme et de contribuer à des projets ambitieux dans le domaine de l’informatique.  
-            </p>
-            
-        </div>
-
-       
-
-    </section>
-
-    <div class="button-container">
-           
-        <!-- Bouton pour consulter le CV -->
-  <a href="newcv.pdf" class="button" target="_blank">Consulter CV</a>
-  <!-- Bouton pour télécharger le CV -->
-  <a href="newcv.pdf" class="button" download>Télécharger CV</a>
-
+ <!-- Section À propos -->
+<section id="about" class="about-section fade-in">
+  <div class="about-container">
+    <!-- Image à gauche -->
+    <div class="about-image">
+      <img src="image_ben.jpeg" alt="Photo de Ben Depardieu Bhibissy">
     </div>
+
+    <!-- Texte à droite -->
+    <div class="about-text">
+      <h2>À propos de moi</h2>
+      <p>
+        Bonjour, je m’appelle <strong>Ben Depardieu Bhibissy</strong>, étudiant en prépa BTS SIO (Services Informatiques aux Organisations),
+        spécialisé dans l’administration des systèmes et des réseaux. Originaire de la République du Congo, c’est là que j’ai découvert
+        ma passion pour l’informatique, en particulier dans le domaine des réseaux et des télécommunications. Aujourd’hui, je poursuis
+        mes études en France, où je développe des compétences techniques solides et pratiques.
+      </p>
+      <p>
+        Mon objectif est de devenir <strong>ingénieur en administration systèmes et réseaux</strong>. C’est pourquoi, en parallèle
+        de mon BTS SIO, je suis une classe préparatoire en partenariat avec l’école d’ingénieurs <strong>ISEN</strong>, afin
+        d’intégrer cette formation après mon diplôme et de contribuer à des projets ambitieux dans le domaine de l’informatique.
+      </p>
+
+      <div class="about-buttons">
+        <a href="newcv.pdf" class="button" target="_blank">Consulter CV</a>
+        <a href="newcv.pdf" class="button download" download>Télécharger CV</a>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Section Compétences -->
     <section id="skills" class="fade-in">
